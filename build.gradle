@@ -1,0 +1,17 @@
+abstract class RollerCoasterTask extends DefaultTask {
+    @Input
+    abstract Property<String> getFavoriteCoaster()
+
+    RollerCoasterTask() {
+        favoriteCoaster.convention('Space Mountain')
+    }
+
+    @TaskAction
+    def tellMeMyFavorite() {
+        println "You favorite coaster is ${favoriteCoaster.get()}!"
+    }
+}
+
+tasks.register('coaster', RollerCoasterTask) {
+    favoriteCoaster = 'Super-duper loopy coaster'
+}
