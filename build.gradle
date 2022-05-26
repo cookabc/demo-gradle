@@ -1,5 +1,13 @@
 import com.chuangcius.RollerCoasterTask
 
+plugins {
+    id 'base'
+}
+
 tasks.register('coaster', RollerCoasterTask) {
     favoriteCoaster = 'Super-duper loopy coaster'
+}
+
+allprojects {
+    apply plugin: 'base'
 }
