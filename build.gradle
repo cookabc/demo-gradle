@@ -6,6 +6,18 @@ plugins {
 
 tasks.register('coaster', RollerCoasterTask) {
     favoriteCoaster = 'Super-duper loopy coaster'
+    group 'My Territory'
+    description 'My favorite coaster'
+}
+
+tasks.named('tasks') {
+    displayGroup = 'My awesome project'
+}
+
+['build', 'assemble', 'check'].forEach {
+    tasks.named(it) {
+        group 'My awesome project'
+    }
 }
 
 allprojects {
